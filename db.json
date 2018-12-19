@@ -1,0 +1,38 @@
+{
+  "contact": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "invoice": [
+    {
+      "id": 1,
+      "contactId": 1,
+      "total": 100
+    }
+  ],
+  "ligne": [
+    {
+      "id": 1,
+      "type": "invoice",
+      "invoiceId": 1,
+      "quoteId": null
+    }
+  ],
+  "quote": [
+    {
+      "id": 1,
+      "contactId": 1,
+      "total": 100
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "typicode",
+      "prix": 100
+    }
+  ]
+}

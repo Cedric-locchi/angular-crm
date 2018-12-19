@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Devis</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      <a routerLink="quote" class="btn btn-sm btn-outline-success">Les devis</a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6 order-md-2 mb-4">
+
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted">Devis</span>
+    </h4>
+
+    <ul class="list-group mb-3">
+
+      <li (click)="removeIndex(i)" class="list-group-item d-flex justify-content-between lh-condensed"
+          *ngFor="let item of quoteInformation; let i = index">
+        <div>
+          <h6 class="my-0">{{item.name}}</h6>
+          <small class="text-muted">{{item.descr}}</small>
+        </div>
+        <span class="text-muted">{{item.price | currency: 'EUR'}}</span>
+      </li>
+
+      <li class="list-group-item d-flex justify-content-between">
+        <span>Total: </span>
+        <strong>{{total | currency: 'EUR'}}</strong>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="col-md-6 order-md-1">
+    <h4 class="mb-3">Nouveau devis</h4>
+    <form [formGroup]="quoteGroup" class="needs-validation" (submit)="addProduct()" novalidate>
+
+      <div class="mb-3">
+        <label for="name">Nom du produit: </label>
+        <input type="text" name="name" [formControl]="name" formControlName="name" class="form-control" id="name">
+        <span *ngIf="name.invalid" class="text-danger">Le champ est obligatoire</span>
+      </div>
+
+      <div class="mb-3">
+        <label for="desc">Descriptif: </label>
+        <input type="text" name="descr" [formControl]="descr" formControlName="descr" class="form-control" id="desc">
+      </div>
+
+      <div class="mb-3">
+        <label for="price">Prix: </label>
+        <input type="number" name="price" [formControl]="price" formControlName="price" class="form-control" id="price">
+        <span *ngIf="price.invalid" class="text-danger">Le champ est obligatoire</span>
+      </div>
+
+      <hr class="mb-4">
+
+      <button class="btn btn-success" type="submit">Ajouter au devis en cours</button>
+
+    </form>
+  </div>
+
+
+</div>

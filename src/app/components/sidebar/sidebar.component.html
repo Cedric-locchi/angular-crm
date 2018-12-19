@@ -1,0 +1,14 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+
+      <li class="nav-item" *ngFor="let item of Nav">
+        <a class="nav-link" [routerLink]="[item.routerLink]" routerLinkActive="active">
+         <i [ngClass]="item.class" style="color: #6c7a89"></i> &nbsp; {{item.name}}
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
