@@ -1,0 +1,24 @@
+.card {
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
+  border-radius: 0 !important;
+  &:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+  }
+}
+
+.block_tool {
+  width: 50px;
+  height: 40px;
+  border-left: 1px solid #cecece;
+  text-align: center;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  i {
+    transform: translateY(55%);
+  }
+
+}

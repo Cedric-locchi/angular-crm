@@ -21,15 +21,24 @@ export class CreateComponent implements OnInit {
   city: FormControl;
   zip: FormControl;
 
+  responseAlert: boolean;
+
   constructor(private contactService: ContactService) {
   }
 
   ngOnInit() {
+    this.responseAlert = false;
     this._buildForm();
   }
 
   get response() {
-    return this.contactService.response;
+    if (this.contactService.response) {
+      this.responseAlert = true;
+      setTimeout(() => {
+        this.responseAlert = false;
+      }, 3000);
+      return;
+    }
   }
 
   addContact() {

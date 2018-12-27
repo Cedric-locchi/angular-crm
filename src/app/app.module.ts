@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -11,7 +12,6 @@ import { LoginLayoutComponent } from './container/login-layout/login-layout.comp
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +22,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule
   ],

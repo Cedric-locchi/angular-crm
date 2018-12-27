@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Contact</h1>
+  <h1 class="h2">Liste des contacts</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
       <a routerLink="create" class="btn btn-sm btn-outline-success">Nouveau contact</a>
@@ -7,15 +7,25 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-4 mb-3" *ngFor="let item of contacts | async">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">{{item.company}}</h5>
-        <p class="card-text">{{item.firstName}} {{item.lastName}}</p>
-        <a [routerLink]="['edit', item.id]" class="btn btn-link text-success">visualiser</a>
+<app-modal [title]="titre" [modal]="true" [big]="true"></app-modal>
+
+<div class="row mb-3">
+  <div class="col-12">
+    <div class="input-group">
+      <input type="search" class="form-control" [(ngModel)]="searchText" placeholder="Rechercher une entreprise">
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">
+         <i class="fas fa-search"></i>
+        </span>
       </div>
     </div>
   </div>
 </div>
 
+<section class="contact_section p-0 m-0">
+  <div class="row m-0">
+    <div class="col-lg-4 mb-3" *ngFor="let item of informations | search: searchText">
+      <app-card [item]="item" (info)="redirect($event)"></app-card>
+    </div>
+  </div>
+</section>

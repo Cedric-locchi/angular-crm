@@ -1,25 +1,32 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactService} from '../../services/contact/contact.service';
-import {Contact} from '../../interface/contact';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
 
-  contacts;
+  constructor(private contactService: ContactService, private router: Router) { }
 
-  constructor(private contactService: ContactService) {
+  get informations() {
+    return this.contactService.informations;
   }
 
-  ngOnInit() {
-    this.getContact();
-  }
+  redirect(info) {
+    switch (info.info) {
 
-  getContact() {
-    this.contacts = this.contactService._getAsynContact();
+      case 'edit':
+        this.router.navigate(['/admin/contact/edit', info.contact.id]);
+        break;
+
+      case 'remove':
+        this.contactService._removeContact(info.contact.id);
+        break;
+
+    }
   }
 
 }

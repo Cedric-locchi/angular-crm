@@ -35,7 +35,7 @@ export class ContactService {
       });
   }
 
-  _getAsynContact() {
+  _getAsyncContact() {
     return this.http.get(environment.url + 'contact');
   }
 
@@ -54,9 +54,21 @@ export class ContactService {
   }
 
   _postContact(data) {
+
+    data.invoices = [];
+    data.quote = [];
+
     this.http.post(environment.url + 'contact', data)
       .subscribe((res: Contact) => {
         this._response = res;
+      });
+
+  }
+
+  _removeContact(id) {
+    this.http.delete(environment.url + 'contact/' + id)
+      .subscribe((res: Response) => {
+        this._getContacts();
       });
   }
 
