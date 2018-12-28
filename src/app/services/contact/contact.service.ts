@@ -1,7 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
+
 import {Contact} from '../../interface/contact';
+
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +37,6 @@ export class ContactService {
       });
   }
 
-  _getAsyncContact() {
-    return this.http.get(environment.url + 'contact');
-  }
-
   _getOneContact(id) {
     this.http.get(environment.url + 'contact/' + id)
       .subscribe((data: Contact) => {
@@ -55,19 +53,31 @@ export class ContactService {
 
   _postContact(data) {
 
-    data.invoices = [];
-    data.quote = [];
+    const obj: any = {};
 
-    this.http.post(environment.url + 'contact', data)
-      .subscribe((res: Contact) => {
-        this._response = res;
+    obj.firstName = data.firstName.value;
+    obj.lastName = data.lastName.value;
+    obj.tel = data.tel.value;
+    obj.email = data.email.value;
+    obj.company = data.company.value;
+    obj.address = data.address.value;
+    obj.country = data.country.value;
+    obj.city = data.city.value;
+    obj.zip = data.zip.value;
+    obj.opportunity = [];
+    obj.invoices = [];
+    obj.quote = [];
+
+    this.http.post(environment.url + 'contact', obj)
+      .subscribe(() => {
+        this._getContacts();
       });
 
   }
 
   _removeContact(id) {
     this.http.delete(environment.url + 'contact/' + id)
-      .subscribe((res: Response) => {
+      .subscribe(() => {
         this._getContacts();
       });
   }

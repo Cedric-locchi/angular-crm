@@ -1,13 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {ContactService} from '../../../services/contact/contact.service';
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class CreateComponent {
 
   contactGroup: FormGroup;
 
@@ -21,29 +20,8 @@ export class CreateComponent implements OnInit {
   city: FormControl;
   zip: FormControl;
 
-  responseAlert: boolean;
-
-  constructor(private contactService: ContactService) {
-  }
-
-  ngOnInit() {
-    this.responseAlert = false;
+  constructor() {
     this._buildForm();
-  }
-
-  get response() {
-    if (this.contactService.response) {
-      this.responseAlert = true;
-      setTimeout(() => {
-        this.responseAlert = false;
-      }, 3000);
-      return;
-    }
-  }
-
-  addContact() {
-    this.contactService._postContact(this.contactGroup.value);
-    this.contactGroup.reset();
   }
 
   private _buildForm() {

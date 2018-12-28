@@ -2,12 +2,14 @@
   <h1 class="h2">Liste des contacts</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
-      <a routerLink="create" class="btn btn-sm btn-outline-success">Nouveau contact</a>
+      <button (click)="showModal = true" class="btn btn-sm btn-outline-success">Nouveau contact</button>
     </div>
   </div>
 </div>
 
-<app-modal [title]="titre" [modal]="true" [big]="true"></app-modal>
+<app-modal (content)="saveContact($event)" (definedModal)="closeModal($event)" [title]="'Création d\'un nouveau contact'" [modal]="showModal" [big]="true">
+  <app-create></app-create>
+</app-modal>
 
 <div class="row mb-3">
   <div class="col-12">

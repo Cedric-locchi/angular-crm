@@ -7,9 +7,16 @@ import {Router} from '@angular/router';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
-  constructor(private contactService: ContactService, private router: Router) { }
+  showModal: boolean;
+
+  constructor(private contactService: ContactService, private router: Router) {
+  }
+
+  ngOnInit(): void {
+    this.showModal = false;
+  }
 
   get informations() {
     return this.contactService.informations;
@@ -27,6 +34,15 @@ export class ContactComponent {
         break;
 
     }
+  }
+
+  closeModal(state) {
+    this.showModal = state;
+  }
+
+  saveContact(info) {
+    this.showModal = false;
+    this.contactService._postContact(info);
   }
 
 }
