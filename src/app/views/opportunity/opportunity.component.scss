@@ -1,0 +1,10 @@
+.board_content > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+
+  .col-4 {
+    display: inline-block;
+    float: none;
+  }
+
+}

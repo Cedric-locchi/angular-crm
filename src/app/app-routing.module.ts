@@ -13,7 +13,8 @@ const routes: Routes = [
       {path: 'invoice', loadChildren: './views/invoice/invoice.module#InvoiceModule'},
       {path: 'quote', loadChildren: './views/quote/quote.module#QuoteModule'},
       {path: 'product', loadChildren: './views/products/products.module#ProductsModule'},
-      {path: 'contact', loadChildren: './views/contact/contact.module#ContactModule'}
+      {path: 'contact', loadChildren: './views/contact/contact.module#ContactModule'},
+      {path: 'opportunity', loadChildren: './views/opportunity/opportunity.module#OpportunityModule'}
     ]
   },
 
