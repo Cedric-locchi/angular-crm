@@ -20,36 +20,49 @@
         <div class="form-row">
 
           <div class="col-sm-3 mb-3">
-            <select type="text"
-                    [formControl]="contact"
-                    class="form-control">
-              <option *ngFor="let item of informations" [value]="item.id">{{item.firstName}} {{item.lastName}}</option>
-            </select>
+            <div class="form-group">
+              <label for="contact">Choisir un contact</label>
+              <select type="text" id="contact" [formControl]="contact" class="form-control">
+                <option *ngFor="let item of informations"
+                        [value]="item.id">{{item.firstName}} {{item.lastName}}</option>
+              </select>
+              <small *ngIf="formSubmitAttempt && contact.errors" class="form-text text-danger">
+                Le contact est obligatoire sur une opportunité
+              </small>
+            </div>
           </div>
 
           <div class="col-sm-3 mb-3">
-            <input type="text"
-                   [formControl]="titre"
-                   class="form-control"
-                   placeholder="Nom">
+            <div class="form-group">
+              <label for="titre">Nom de l'opportunité</label>
+              <input type="text" id="titre" [formControl]="titre" class="form-control" placeholder="Nom">
+              <small *ngIf="formSubmitAttempt && titre.errors" class="form-text text-danger">
+                Le nom est obligatoire sur une opportunité
+              </small>
+            </div>
           </div>
 
           <div class="col-sm-3 mb-3">
-            <input type="text"
-                   [formControl]="description"
-                   class="form-control"
-                   placeholder="description">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input type="text" id="description" [formControl]="description" class="form-control"
+                     placeholder="description">
+            </div>
           </div>
 
           <div class="col-sm-3 mb-3">
-            <input type="number"
-                   [formControl]="montant"
-                   class="form-control"
-                   placeholder="montant">
+            <div class="form-group">
+              <label for="montant">Montant</label>
+              <input type="number" id="montant" [formControl]="montant" class="form-control" placeholder="montant">
+              <small *ngIf="formSubmitAttempt && montant.errors" class="form-text text-danger">
+                Le motntan est obligatoire sur une opportunité
+              </small>
+            </div>
           </div>
 
           <div class="col-sm-12">
-            <input type="submit" class="btn btn-success" value="valider">
+            <input type="submit" class="btn btn-success" value="valider"> &nbsp;
+            <input (click)="form = !form" type="submit" class="btn btn-dark" value="anuler">
           </div>
 
         </div>

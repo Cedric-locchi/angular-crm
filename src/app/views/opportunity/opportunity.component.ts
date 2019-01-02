@@ -18,6 +18,8 @@ export class OpportunityComponent implements OnInit {
   montant: FormControl;
 
   form: boolean;
+  formSubmitAttempt: boolean;
+
 
   constructor(private opportunityService: OpportunityService, private contactService: ContactService) {
   }
@@ -60,8 +62,10 @@ export class OpportunityComponent implements OnInit {
   }
 
   save() {
+    this.formSubmitAttempt = true;
     if (this.opportunityForm.status === 'VALID') {
       this.opportunityService._postOpportuntiy(this.opportunityForm.value);
+      this.formSubmitAttempt = true;
       this.opportunityForm.reset();
       this.form = false;
     }
@@ -69,9 +73,9 @@ export class OpportunityComponent implements OnInit {
 
   private _buildForm() {
     this.contact = new FormControl('', [Validators.required]);
-    this.titre = new FormControl('', []);
+    this.titre = new FormControl('', [Validators.required]);
     this.description = new FormControl('', []);
-    this.montant = new FormControl('', []);
+    this.montant = new FormControl('', [Validators.required]);
 
     this.opportunityForm = new FormGroup({
       contactId: this.contact,

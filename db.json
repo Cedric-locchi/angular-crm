@@ -196,7 +196,7 @@
       "titre": "une super opportunité",
       "description": "opportunité basé sur un test super genial trop cool",
       "montant": 2000,
-      "step": "proposal",
+      "step": "perdu",
       "id": 9
     },
     {
@@ -204,8 +204,16 @@
       "titre": "super test 2",
       "description": "une bonne description ",
       "montant": 3000,
-      "step": "en cours",
+      "step": "perdu",
       "id": 10
+    },
+    {
+      "contactId": "6",
+      "titre": "azeazeaze",
+      "description": "aze",
+      "montant": 100,
+      "step": "perdu",
+      "id": 11
     }
   ],
   "invoice": [
