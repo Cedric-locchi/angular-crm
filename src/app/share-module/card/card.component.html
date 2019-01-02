@@ -1,31 +1,21 @@
-<div class="card shadow-sm">
-  <div class="card-header p-0">
+<div class="card shadow-sm mt-2 mb-2" draggable="true">
 
+  <div class="card-header p-0">
     <div class="d-flex flex-row-reverse">
-      <div class="block_tool" (click)="redirect('edit', item)">
+      <div class="block_tool" (click)="redirect('edit')">
         <i class="far fa-eye text-secondary"></i>
       </div>
-      <div class="block_tool" (click)="redirect('remove', item)">
+      <div class="block_tool" (click)="redirect('remove')">
         <i class="fas fa-times text-secondary"></i>
       </div>
     </div>
-
   </div>
+
   <div class="card-body">
-    <div class="row">
-
-      <div class="col-8">
-        <h5 class="card-title"><i class="far fa-building"></i> {{item.company}}</h5>
-        <p class="card-text"><i class="far fa-user-circle"></i> {{item.firstName}} {{item.lastName}}</p>
-      </div>
-
-      <div class="col-4">
-        <small class="text-muted">
-          Devis: {{item.quote.length}} <br>
-          Factures: {{item.invoices.length}}
-        </small>
-      </div>
-
-    </div>
+    <h5 class="card-title">{{item.titre}}</h5>
+    <p class="card-text"> montant: {{ item.montant }} </p>
   </div>
+
+  <ng-content></ng-content>
+
 </div>

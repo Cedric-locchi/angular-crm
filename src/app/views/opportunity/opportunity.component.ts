@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {OpportunityService} from '../../services/opportunity/opportunity.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ContactService} from '../../services/contact/contact.service';
 
 @Component({
   selector: 'app-opportunity',
@@ -7,9 +10,81 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpportunityComponent implements OnInit {
 
-  constructor() { }
+  opportunityForm: FormGroup;
+
+  contact: FormControl;
+  titre: FormControl;
+  description: FormControl;
+  montant: FormControl;
+
+  form: boolean;
+
+  constructor(private opportunityService: OpportunityService, private contactService: ContactService) {
+  }
 
   ngOnInit() {
+    this.form = false;
+    this._buildForm();
+  }
+
+  get opportunity() {
+    return this.opportunityService.opportunity;
+  }
+
+  get proposal() {
+    return this.opportunityService.proposal;
+  }
+
+  get gagner() {
+    return this.opportunityService.gagner;
+  }
+
+  get perdu() {
+    return this.opportunityService.perdu;
+  }
+
+  get informations() {
+    return this.contactService.informations;
+  }
+
+  next(item) {
+    this.defineStep(item, 'proposal');
+  }
+
+  win(item) {
+    this.defineStep(item, 'gagner');
+  }
+
+  loose(item) {
+    this.defineStep(item, 'perdu');
+  }
+
+  save() {
+    if (this.opportunityForm.status === 'VALID') {
+      this.opportunityService._postOpportuntiy(this.opportunityForm.value);
+      this.opportunityForm.reset();
+      this.form = false;
+    }
+  }
+
+  private _buildForm() {
+    this.contact = new FormControl('', [Validators.required]);
+    this.titre = new FormControl('', []);
+    this.description = new FormControl('', []);
+    this.montant = new FormControl('', []);
+
+    this.opportunityForm = new FormGroup({
+      contactId: this.contact,
+      titre: this.titre,
+      description: this.description,
+      montant: this.montant
+    });
+
+  }
+
+  private defineStep(item, state) {
+    item.step = state;
+    this.opportunityService._updateOpportunity(item);
   }
 
 }

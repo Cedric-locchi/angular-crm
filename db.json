@@ -58,7 +58,8 @@
       "zip": "lhjk",
       "id": 7,
       "invoices": [],
-      "quote": []
+      "quote": [],
+      "telephone": "0909090909"
     },
     {
       "firstName": "azeaze",
@@ -103,18 +104,108 @@
       "id": 11
     },
     {
-      "firstName": "aze",
-      "lastName": "dupont",
-      "tel": "0909090909",
+      "firstName": "azeaze",
+      "lastName": "aze",
+      "tel": "0674511775",
       "email": "aze@aze.fr",
       "company": "aze",
       "address": "147 avenue sainte marguerite",
       "country": "France",
       "city": "Nice",
       "zip": "06200",
+      "opportunity": [],
       "invoices": [],
       "quote": [],
-      "id": 12
+      "id": 12,
+      "telephone": "0674511775",
+      "pays": "France",
+      "ville": "Nice"
+    }
+  ],
+  "opportunity": [
+    {
+      "id": 1,
+      "contactId": 1,
+      "titre": "un titre",
+      "description": "une super description d'opportunité",
+      "montant": 100,
+      "step": "gagner",
+      "dateFin": null
+    },
+    {
+      "id": 2,
+      "contactId": 4,
+      "titre": "un titre",
+      "description": "une super description d'opportunité",
+      "montant": 100,
+      "step": "gagner",
+      "dateFin": null
+    },
+    {
+      "id": 3,
+      "contactId": 2,
+      "titre": "un titre",
+      "description": "une super description d'opportunité",
+      "montant": 100,
+      "step": "gagner",
+      "dateFin": null
+    },
+    {
+      "id": 4,
+      "contactId": 2,
+      "titre": "un titre",
+      "description": "une super description d'opportunité",
+      "montant": 100,
+      "step": "perdu",
+      "dateFin": null
+    },
+    {
+      "contactId": 2,
+      "titre": "aze",
+      "description": "aze",
+      "montant": 100,
+      "step": "perdu",
+      "id": 5
+    },
+    {
+      "contact": "aze",
+      "titre": "aze",
+      "description": "aze",
+      "montant": 10,
+      "step": "perdu",
+      "id": 6
+    },
+    {
+      "contactId": "2",
+      "titre": "aze",
+      "description": "aze",
+      "montant": 10,
+      "step": "perdu",
+      "id": 7
+    },
+    {
+      "contactId": "",
+      "titre": "",
+      "description": "",
+      "montant": "",
+      "step": "gagner",
+      "id": 8
+    },
+    {
+      "contactId": "7",
+      "titre": "une super opportunité",
+      "description": "opportunité basé sur un test super genial trop cool",
+      "montant": 2000,
+      "step": "proposal",
+      "id": 9
+    },
+    {
+      "contactId": "9",
+      "titre": "super test 2",
+      "description": "une bonne description ",
+      "montant": 3000,
+      "step": "en cours",
+      "id": 10
     }
   ],
   "invoice": [

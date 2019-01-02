@@ -13,4 +13,5 @@ export interface Contact {
   zip: string;
   invoices: Array<number> | Array<Invoice>;
   quote: Array<number>;
+  opportunity: Array<number>;
 }

@@ -7,11 +7,12 @@
   </div>
 </div>
 
-<app-modal (content)="saveContact($event)" (definedModal)="closeModal($event)" [title]="'Création d\'un nouveau contact'" [modal]="showModal" [big]="true">
+<app-modal (content)="saveContact($event)" (definedModal)="closeModal($event)"
+           [title]="'Création d\'un nouveau contact'" [modal]="showModal" [big]="true">
   <app-create></app-create>
 </app-modal>
 
-<div class="row mb-3">
+<div class="row m-0 mb-3">
   <div class="col-12">
     <div class="input-group">
       <input type="search" class="form-control" [(ngModel)]="searchText" placeholder="Rechercher une entreprise">
@@ -24,10 +25,22 @@
   </div>
 </div>
 
-<section class="contact_section p-0 m-0">
+<section class="contact_section">
   <div class="row m-0">
-    <div class="col-lg-4 mb-3" *ngFor="let item of informations | search: searchText">
-      <app-card [item]="item" (info)="redirect($event)"></app-card>
+
+    <div class="col-sm-4">
+      <ul class="list-group" *ngFor="let item of informations | search: searchText">
+        <li (mouseover)="definedContact(item)"
+            class="list-group-item d-flex justify-content-between align-items-center">
+          {{item.firstName}} {{item.lastName}} : {{item.company}}
+          <span (click)="remove(item)" class="badge badge-danger badge-pill">X</span>
+        </li>
+      </ul>
     </div>
+
+    <div class="col-sm-8">
+      <app-edit *ngIf="contact" [information]="contact"></app-edit>
+    </div>
+
   </div>
 </section>

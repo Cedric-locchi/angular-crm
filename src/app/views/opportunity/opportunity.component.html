@@ -5,7 +5,7 @@
       <button class="btn btn-sm btn-outline-secondary">
         <i class="fas fa-cog"></i>
       </button>&nbsp;
-      <button class="btn btn-sm btn-outline-secondary">
+      <button (click)="form = !form" class="btn btn-sm btn-outline-secondary">
         <i class="fas fa-plus"></i>
       </button>&nbsp;
     </div>
@@ -14,18 +14,89 @@
 
 <section class="board_opportunity">
 
+  <div class="card border-top-0" [ngClass]="{'hide': !form, show: form}">
+    <div class="card-body">
+      <form [formGroup]="opportunityForm" (submit)="save()" class="mt-4 mb-4">
+        <div class="form-row">
+
+          <div class="col-sm-3 mb-3">
+            <select type="text"
+                    [formControl]="contact"
+                    class="form-control">
+              <option *ngFor="let item of informations" [value]="item.id">{{item.firstName}} {{item.lastName}}</option>
+            </select>
+          </div>
+
+          <div class="col-sm-3 mb-3">
+            <input type="text"
+                   [formControl]="titre"
+                   class="form-control"
+                   placeholder="Nom">
+          </div>
+
+          <div class="col-sm-3 mb-3">
+            <input type="text"
+                   [formControl]="description"
+                   class="form-control"
+                   placeholder="description">
+          </div>
+
+          <div class="col-sm-3 mb-3">
+            <input type="number"
+                   [formControl]="montant"
+                   class="form-control"
+                   placeholder="montant">
+          </div>
+
+          <div class="col-sm-12">
+            <input type="submit" class="btn btn-success" value="valider">
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
   <div class="board_content">
     <div class="row flex-nowrap">
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
-      <div class="col-4 col-kanban">col</div>
+
+      <div class="col-sm-3 pr-4">
+        <h5>en cour</h5>
+        <div class="col-kanban p-2">
+          <app-card *ngFor="let item of opportunity" [item]="item">
+            <div class="card-footer">
+              <button (click)="next(item)" class="btn btn-success btn-sm">étape suivante</button>
+            </div>
+          </app-card>
+        </div>
+      </div>
+
+      <div class="col-sm-3 pr-4">
+        <h5>proposer</h5>
+        <div class="col-kanban p-2">
+          <app-card *ngFor="let item of proposal" [item]="item">
+            <div class="card-footer">
+              <button (click)="win(item)" class="btn btn-success btn-sm">gagner</button> &nbsp;
+              <button (click)="loose(item)" class="btn btn-danger btn-sm">perdu</button>
+            </div>
+          </app-card>
+        </div>
+      </div>
+
+      <div class="col-sm-3 pr-4">
+        <h5>gagner</h5>
+        <div class="col-kanban p-2">
+          <app-card *ngFor="let item of gagner" [item]="item"></app-card>
+        </div>
+      </div>
+
+      <div class="col-sm-3 pr-4">
+        <h5>perdu</h5>
+        <div class="col-kanban p-2">
+          <app-card *ngFor="let item of perdu" [item]="item"></app-card>
+        </div>
+      </div>
+
     </div>
   </div>
 

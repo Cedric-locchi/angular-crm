@@ -14,7 +14,6 @@ export class SidebarComponent implements OnInit {
     {routerLink: 'invoice', name: 'Factures', class: 'fas fa-file-invoice'},
     {routerLink: 'quote', name: 'Devis', class: 'fas fa-file-alt'},
     {routerLink: 'product', name: 'Produits', class: 'fas fa-file-alt'},
-    {routerLink: 'product', name: 'Produits', class: 'fas fa-file-alt'},
   ];
 
   constructor() {

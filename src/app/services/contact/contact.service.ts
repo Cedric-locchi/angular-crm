@@ -37,13 +37,6 @@ export class ContactService {
       });
   }
 
-  _getOneContact(id) {
-    this.http.get(environment.url + 'contact/' + id)
-      .subscribe((data: Contact) => {
-        this._information = data;
-      });
-  }
-
   _updateContact(id, data) {
     this.http.put(environment.url + 'contact/' + id, data)
       .subscribe((res: Contact) => {
@@ -57,12 +50,12 @@ export class ContactService {
 
     obj.firstName = data.firstName.value;
     obj.lastName = data.lastName.value;
-    obj.tel = data.tel.value;
+    obj.telephone = data.tel.value;
     obj.email = data.email.value;
     obj.company = data.company.value;
     obj.address = data.address.value;
-    obj.country = data.country.value;
-    obj.city = data.city.value;
+    obj.pays = data.country.value;
+    obj.ville = data.city.value;
     obj.zip = data.zip.value;
     obj.opportunity = [];
     obj.invoices = [];

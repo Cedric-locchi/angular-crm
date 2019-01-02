@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactService} from '../../services/contact/contact.service';
 import {Router} from '@angular/router';
+import {Contact} from '../../interface/contact';
 
 @Component({
   selector: 'app-contact',
@@ -10,6 +11,8 @@ import {Router} from '@angular/router';
 export class ContactComponent implements OnInit {
 
   showModal: boolean;
+  searchText: string;
+  contact: Contact;
 
   constructor(private contactService: ContactService, private router: Router) {
   }
@@ -22,18 +25,12 @@ export class ContactComponent implements OnInit {
     return this.contactService.informations;
   }
 
-  redirect(info) {
-    switch (info.info) {
+  remove(contact) {
+    this.contactService._removeContact(contact.id);
+  }
 
-      case 'edit':
-        this.router.navigate(['/admin/contact/edit', info.contact.id]);
-        break;
-
-      case 'remove':
-        this.contactService._removeContact(info.contact.id);
-        break;
-
-    }
+  definedContact(item) {
+    this.contact = item;
   }
 
   closeModal(state) {

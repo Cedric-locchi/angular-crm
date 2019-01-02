@@ -9,13 +9,8 @@ import {Contact} from '../../interface/contact';
 export class CardComponent {
 
   @Input() item: Contact;
-  @Output() info: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
-  }
-
-  redirect(info, contact) {
-    this.info.emit({info, contact});
   }
 
 }

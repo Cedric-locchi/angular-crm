@@ -6,3 +6,11 @@
   height: 100%;
   overflow: scroll;
 }
+
+.list-group-item {
+  border-radius: 0;
+}
+
+.badge {
+  cursor: pointer;
+}
