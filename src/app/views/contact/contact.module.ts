@@ -10,9 +10,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {SearchPipe} from '../../pipes/search/search.pipe';
 import {ShareModuleModule} from '../../share-module/share-module.module';
+import { ViewComponent } from './view/view.component';
 
 @NgModule({
-  declarations: [ContactComponent, CreateComponent, EditComponent, SearchPipe],
+  declarations: [ContactComponent, CreateComponent, EditComponent, SearchPipe, ViewComponent],
   imports: [
     CommonModule,
     ContactRoutingModule,

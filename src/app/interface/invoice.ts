@@ -1,3 +1,4 @@
 export interface Invoice {
-  id: number
+  id: number;
+  total: number;
 }

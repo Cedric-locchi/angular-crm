@@ -1,0 +1,23 @@
+.bg-gradient-success {
+  background: linear-gradient(87deg, #00d9bf 0, #2dcecc 100%) !important;
+}
+
+.bg-gradient-info {
+  background: linear-gradient(87deg, #7c59ff 0, #5a39ef 100%) !important;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(87deg, #ad59ff 0, #7659ff 100%) !important;
+}
+
+.text-xxl {
+  font-size: 2rem !important;
+}
+
+.h2, .h3{
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: .5rem;
+  font-size: 20px;
+}

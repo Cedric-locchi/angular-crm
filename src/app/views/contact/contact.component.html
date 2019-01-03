@@ -2,7 +2,7 @@
   <h1 class="h2">Liste des contacts</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
-      <button (click)="showModal = true" class="btn btn-sm btn-outline-success">Nouveau contact</button>
+      <button (click)="showModal = true" class="btn btn-sm btn-success shadow-sm">Nouveau contact</button>
     </div>
   </div>
 </div>
@@ -14,12 +14,16 @@
 
 <div class="row m-0 mb-3">
   <div class="col-12">
-    <div class="input-group">
-      <input type="search" class="form-control" [(ngModel)]="searchText" placeholder="Rechercher une entreprise">
-      <div class="input-group-append">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <div class="input-group">
+          <input type="search" class="form-control" [(ngModel)]="searchText" placeholder="Rechercher une entreprise">
+          <div class="input-group-append">
         <span class="input-group-text" id="basic-addon2">
          <i class="fas fa-search"></i>
         </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -29,17 +33,28 @@
   <div class="row m-0">
 
     <div class="col-sm-4">
-      <ul class="list-group" *ngFor="let item of informations | search: searchText">
-        <li (mouseover)="definedContact(item)"
-            class="list-group-item d-flex justify-content-between align-items-center">
-          {{item.firstName}} {{item.lastName}} : {{item.company}}
-          <span (click)="remove(item)" class="badge badge-danger badge-pill">X</span>
-        </li>
-      </ul>
+      <div class="list-group shadow-sm">
+        <div (mouseover)="definedContact(item)" class="list-group-item list-group-item-action"
+           *ngFor="let item of informations | search: searchText">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><i class="far fa-building"></i> {{item.company}}</h5>
+            <small>
+              <button (click)="remove(item)" class="btn btn-danger btn-sm">X</button>
+            </small>
+          </div>
+          <p class="mb-1">
+            <i class="far fa-user"></i> {{item.firstName}} {{item.lastName}}
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="col-sm-8">
-      <app-edit *ngIf="contact" [information]="contact"></app-edit>
+      <div class="card shadow-sm" *ngIf="contact">
+        <div class="card-body">
+          <app-edit [information]="contact"></app-edit>
+        </div>
+      </div>
     </div>
 
   </div>

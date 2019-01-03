@@ -64,7 +64,7 @@ export class OpportunityComponent implements OnInit {
   save() {
     this.formSubmitAttempt = true;
     if (this.opportunityForm.status === 'VALID') {
-      this.opportunityService._postOpportuntiy(this.opportunityForm.value);
+      this.opportunityService._postOpportunity(this.opportunityForm.value);
       this.formSubmitAttempt = true;
       this.opportunityForm.reset();
       this.form = false;

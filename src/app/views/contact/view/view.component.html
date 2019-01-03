@@ -1,0 +1,158 @@
+<div *ngIf="information" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">{{information.firstName}} {{information.lastName}}</h1>
+
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+
+      <a routerLink="/admin/contact" class="btn btn-sm btn-secondary mr-2 shadow-sm">
+        <i class="fas fa-chevron-left"></i>
+        retour
+      </a>
+
+      <button class="btn btn-sm btn-primary mr-2 shadow-sm">créer une opportunité</button>
+      <button class="btn btn-sm btn-success mr-2 shadow-sm">créer un devis</button>
+      <button class="btn btn-sm btn-dark shadow-sm">créer un facture</button>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row" *ngIf="information">
+
+  <div class="col-lg-4">
+
+    <div class="list-group shadow-sm" *ngIf="information">
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between mb-2">
+          <h5 class="mb-1">Information</h5>
+        </div>
+        <p class="mb-1">
+          Entreprise:
+          <b>{{information.company}}</b>
+        </p>
+        <p class="mb-1">
+          Téléphone:
+          <b> {{information.telephone}}</b>
+        </p>
+        <p class="mb-1">
+          Email:
+          <b> {{information.email}}</b>
+        </p>
+      </a>
+    </div>
+
+    <div class="list-group mt-3 mb-3 shadow-sm" *ngIf="information">
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Adresse du contact</h5>
+        </div>
+        <p class="mb-1">adresse: {{information.address}}</p>
+        <p class="mb-1">cp: {{information.zip}}</p>
+        <p class="mb-1">ville: {{information.ville}}</p>
+        <p class="mb-1">pays: {{information.pays}}</p>
+      </a>
+    </div>
+
+    <ul class="list-group mt-3 shadow-sm" *ngIf="opportunity">
+      <li class="list-group-item d-flex justify-content-between align-items-center">total des opportunités:
+        <b>{{opportunity.count | currency:'EUR'}}</b></li>
+    </ul>
+
+    <ul class="list-group mt-3 shadow-sm" *ngIf="quote">
+      <li class="list-group-item d-flex justify-content-between align-items-center">total des devis:
+        <b>{{quote.count | currency:'EUR'}}</b></li>
+    </ul>
+
+    <ul class="list-group mt-3 shadow-sm" *ngIf="invoices">
+      <li class="list-group-item d-flex justify-content-between align-items-center">total des factures:
+        <b>{{invoices.count | currency:'EUR'}}</b></li>
+    </ul>
+
+  </div>
+
+  <div class="col-lg-8">
+
+    <div class="card shadow-sm" *ngIf="opportunity && opportunity.opp.length > 0">
+      <div class="card-header bg-info text-white">Liste des opprotunité</div>
+      <div class="card-body">
+        <table class="table table-bordered table-hover text-center">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">nom</th>
+            <th scope="col">montant</th>
+            <th scope="col">Etape</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of opportunity.opp" [ngClass]="{
+          'text-success': item.step === 'gagner',
+          'text-warning': item.step === 'proposal',
+          'text-primary': item.step === 'en cours',
+          'text-danger': item.step === 'perdu'}">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.titre}}</td>
+            <td>{{item.montant | currency:'EUR'}}</td>
+            <td>{{item.step}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card  shadow-sm mt-3" *ngIf="quote && quote.quote.length > 0">
+      <div class="card-header bg-info text-white">Liste des devis</div>
+      <div class="card-body">
+        <table class="table table-bordered table-hover text-center">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">nom</th>
+            <th scope="col">montant</th>
+            <th scope="col">action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of quote.quote">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.total | currency:'EUR'}}</td>
+            <td>
+              <button class="btn btn-outline-success btn-sm">transformer</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card mt-3 mb-3 shadow-sm" *ngIf="invoices && invoices.invoices.length > 0">
+      <div class="card-header bg-info text-white">Liste des factures</div>
+      <div class="card-body">
+        <table class="table table-bordered table-hover text-center">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">nom</th>
+            <th scope="col">montant</th>
+            <th scope="col">action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of invoices.invoices">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.total | currency:'EUR'}}</td>
+            <td>
+              <button class="btn btn-outline-warning btn-sm">archiver</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>

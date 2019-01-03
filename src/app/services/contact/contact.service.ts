@@ -12,7 +12,6 @@ export class ContactService {
 
   private _informations: Array<Contact>;
   private _information: Contact;
-  private _response: Contact;
 
   get informations(): Array<Contact> {
     return this._informations;
@@ -20,10 +19,6 @@ export class ContactService {
 
   get information(): Contact {
     return this._information;
-  }
-
-  get response() {
-    return this._response;
   }
 
   constructor(private http: HttpClient) {
@@ -37,10 +32,17 @@ export class ContactService {
       });
   }
 
+  _getOneContact(id) {
+    this.http.get(environment.url + 'contact/' + id)
+      .subscribe((data: Contact) => {
+        this._information = data;
+      });
+  }
+
   _updateContact(id, data) {
     this.http.put(environment.url + 'contact/' + id, data)
-      .subscribe((res: Contact) => {
-        this._response = res;
+      .subscribe(() => {
+       this._getContacts();
       });
   }
 
