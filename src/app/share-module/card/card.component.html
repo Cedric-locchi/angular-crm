@@ -13,20 +13,17 @@
         <p class="card-text"> montant: {{ item.montant | currency:'EUR'}} </p>
       </div>
       <div class="col-lg-3">
-        <div class="tool border text-center p-2">
+        <div class="tool text-center p-2">
           <i class="fas fa-caret-down"></i>
             <div class="tool-container">
               <ul class="list-group">
-                <li class="list-group-item">Visualiser</li>
-                <li class="list-group-item">Editer</li>
-                <li class="list-group-item">Supprimer</li>
+                <li class="list-group-item" (click)="view(item.id)">Visualiser</li>
+                <li class="list-group-item" (click)="remove(item.id)">Supprimer</li>
               </ul>
             </div>
         </div>
       </div>
     </div>
-
-
   </div>
 
 </div>

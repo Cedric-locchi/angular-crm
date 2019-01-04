@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {OpportunityService} from '../../services/opportunity/opportunity.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ContactService} from '../../services/contact/contact.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-opportunity',
@@ -21,7 +22,9 @@ export class OpportunityComponent implements OnInit {
   formSubmitAttempt: boolean;
 
 
-  constructor(private opportunityService: OpportunityService, private contactService: ContactService) {
+  constructor(private opportunityService: OpportunityService,
+              private router: Router,
+              private contactService: ContactService) {
   }
 
   ngOnInit() {
@@ -59,6 +62,14 @@ export class OpportunityComponent implements OnInit {
 
   loose(item) {
     this.defineStep(item, 'perdu');
+  }
+
+  redirect(ev) {
+    this.router.navigate(['/admin/opportunity/view', ev]);
+  }
+
+  remove(ev) {
+    console.log(ev);
   }
 
   save() {

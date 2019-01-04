@@ -42,7 +42,8 @@
       "description": "une super description d'opportunité",
       "montant": 100,
       "step": "gagner",
-      "dateFin": null
+      "dateFin": null,
+      "phase": 1
     },
     {
       "id": 2,
@@ -51,7 +52,8 @@
       "description": "une super description d'opportunité",
       "montant": 100,
       "step": "gagner",
-      "dateFin": null
+      "dateFin": null,
+      "phase": 1
     },
     {
       "id": 3,
@@ -60,7 +62,8 @@
       "description": "une super description d'opportunité",
       "montant": 100,
       "step": "gagner",
-      "dateFin": null
+      "dateFin": null,
+      "phase": 1
     },
     {
       "id": 4,
@@ -69,7 +72,8 @@
       "description": "une super description d'opportunité",
       "montant": 100,
       "step": "perdu",
-      "dateFin": null
+      "dateFin": null,
+      "phase": 2
     },
     {
       "contactId": 2,
@@ -77,7 +81,8 @@
       "description": "aze",
       "montant": 100,
       "step": "perdu",
-      "id": 5
+      "id": 5,
+      "phase": 3
     },
     {
       "contactId": "2",
@@ -85,7 +90,8 @@
       "description": "aze",
       "montant": 10,
       "step": "perdu",
-      "id": 6
+      "id": 6,
+      "phase": 1
     },
     {
       "contactId": "7",
@@ -93,7 +99,8 @@
       "description": "opportunité basé sur un test super genial trop cool",
       "montant": 2000,
       "step": "perdu",
-      "id": 7
+      "id": 7,
+      "phase": 1
     },
     {
       "contactId": "9",
@@ -101,7 +108,8 @@
       "description": "une bonne description ",
       "montant": 3000,
       "step": "perdu",
-      "id": 8
+      "id": 8,
+      "phase": 4
     },
     {
       "contactId": "6",
@@ -109,7 +117,8 @@
       "description": "aze",
       "montant": 100,
       "step": "perdu",
-      "id": 9
+      "id": 9,
+      "phase": 1
     },
     {
       "contactId": "1",
@@ -117,7 +126,8 @@
       "description": "une description super cool de fou!!",
       "montant": 3200,
       "step": "en cours",
-      "id": 10
+      "id": 10,
+      "phase": 1
     },
     {
       "contactId": "2",
@@ -125,7 +135,8 @@
       "description": "azeaze",
       "montant": 1000,
       "step": "en cours",
-      "id": 11
+      "id": 11,
+      "phase": 3
     },
     {
       "contactId": "3",
@@ -133,7 +144,8 @@
       "description": "une description super cool de fou!!",
       "montant": 3000,
       "step": "en cours",
-      "id": 12
+      "id": 12,
+      "phase": 3
     }
   ],
   "invoice": [
@@ -165,6 +177,16 @@
       "id": 1,
       "name": "typicode",
       "prix": 100
+    },
+    {
+      "name": "test",
+      "prix": "100",
+      "id": 2
+    },
+    {
+      "name": "produit 3",
+      "prix": "1000",
+      "id": 3
     }
   ]
 }

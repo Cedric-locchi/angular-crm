@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Contact} from '../../interface/contact';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Opportunity} from '../../interface/opportunity';
 
 @Component({
   selector: 'app-card',
@@ -8,11 +8,20 @@ import {Contact} from '../../interface/contact';
 })
 export class CardComponent {
 
-  open: boolean;
-  @Input() item: Contact;
+  @Input() item: Opportunity;
+
+  @Output() opportunity: EventEmitter<number> = new EventEmitter<number>();
+  @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {
-    this.open = false;
+  }
+
+  view(item) {
+    this.opportunity.emit(item);
+  }
+
+  remove(id) {
+    this.delete.emit(id);
   }
 
 }

@@ -76,7 +76,7 @@
       <div class="col-sm-3 pr-4">
         <p>en cours ({{opportunity.length}})</p>
         <div class="col-kanban border bg-white p-3">
-          <app-card *ngFor="let item of opportunity;" [item]="item"></app-card>
+          <app-card (opportunity)="redirect($event)" (delete)="remove($event)" *ngFor="let item of opportunity;" [item]="item"></app-card>
         </div>
       </div>
 

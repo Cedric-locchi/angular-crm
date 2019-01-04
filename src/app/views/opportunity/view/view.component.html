@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">Opportunité</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+      <a [routerLink]="['/admin/opportunity']"class="btn btn-sm btn-secondary mr-2 shadow-sm">
+        <i class="fas fa-chevron-left"></i>
+        retour
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <section class="col-sm-12">
+    <div class="wizard">
+
+      <ul class="nav nav-wizard">
+
+        <li [ngClass]="{'active': information.phase === 1}">
+          <a>Etude du besoin</a>
+        </li>
+
+        <li [ngClass]="{'active': information.phase === 2}">
+          <a>Envoie du devis</a>
+        </li>
+
+        <li [ngClass]="{'active': information.phase === 3}">
+          <a>Relance</a>
+        </li>
+
+        <li [ngClass]="{'active': information.phase === 4}">
+          <a>Fermeture</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+</div>
+
+<div class="row">
+
+  <div class="col-lg-4">
+
+    <div class="list-group shadow-sm">
+      <div class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between mb-2">
+          <h5 class="mb-1">Information</h5>
+        </div>
+        <p class="mb-1">
+          nom de l'opprotuntié:
+          <b>{{information.titre}}</b>
+        </p>
+        <p class="mb-1">
+          Description:
+          <b> {{information.description}}</b>
+        </p>
+        <p class="mb-1">
+          Etape:
+          <b> {{information.step}}</b>
+        </p>
+        <p class="mb-1">
+          Date de fin:
+          <b> {{information.dateFin}}</b>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

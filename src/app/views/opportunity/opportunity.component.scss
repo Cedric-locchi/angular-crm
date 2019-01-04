@@ -10,8 +10,8 @@
 }
 
 .col-kanban {
-  min-height: 560px;
-  max-height: 560px;
+  min-height: 570px;
+  max-height: 570px;
   overflow-y: scroll;
   width: 100%;
 }
@@ -26,7 +26,7 @@
 
 .show {
   position: absolute;
-  top: -120px;
+  top: -10px;
   z-index: 300;
   visibility: visible;
   margin-top: 30px;

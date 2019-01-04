@@ -11,6 +11,7 @@ import {Invoice} from '../../interface/invoice';
 export class OpportunityService {
 
   private _opportunities: Array<Opportunity>;
+  private _opportunity: Opportunity;
   private _opportunitiesContact: Array<Opportunity>;
 
   private _proposal: Array<Opportunity>;
@@ -35,6 +36,10 @@ export class OpportunityService {
 
   get opportunity() {
     return this._opportunities;
+  }
+
+  get oneOpportunity() {
+    return this._opportunity;
   }
 
   get contactOpportunity() {
@@ -183,6 +188,13 @@ export class OpportunityService {
         this._totalProposal = proposal;
         this._totalWait = wait;
 
+      });
+  }
+
+  _getOneOpportunity(id) {
+    this.http.get(environment.url + 'opportunity/' + id)
+      .subscribe((res: Opportunity) => {
+        this._opportunity = res;
       });
   }
 

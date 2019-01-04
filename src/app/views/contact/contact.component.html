@@ -8,7 +8,7 @@
 </div>
 
 <app-modal (content)="saveContact($event)" (definedModal)="closeModal($event)"
-           [title]="'Création d\'un nouveau contact'" [modal]="showModal" [big]="true">
+           [title]="'Création d\'un nouveau contact'" [modal]="showModal" [big]="true" [formContent]="'contact'">
   <app-create></app-create>
 </app-modal>
 
