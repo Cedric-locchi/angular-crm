@@ -9,10 +9,6 @@ body {
   vertical-align: text-bottom;
 }
 
-/*
- * Sidebar
- */
-
 .sidebar {
   position: fixed;
   top: 0;
@@ -135,7 +131,7 @@ label:focus,
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  border-radius: .375rem;
+  border-radius: .375rem!important;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0,0,0,0.1);

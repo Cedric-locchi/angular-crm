@@ -8,9 +8,11 @@ import {Contact} from '../../interface/contact';
 })
 export class CardComponent {
 
+  open: boolean;
   @Input() item: Contact;
 
   constructor() {
+    this.open = false;
   }
 
 }

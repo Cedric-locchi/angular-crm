@@ -1,21 +1,32 @@
-<div class="card shadow-sm mt-2 mb-2" draggable="true">
-
-  <div class="card-header p-0">
-    <div class="d-flex flex-row-reverse">
-      <div class="block_tool" (click)="redirect('edit')">
-        <i class="far fa-eye text-secondary"></i>
-      </div>
-      <div class="block_tool" (click)="redirect('remove')">
-        <i class="fas fa-times text-secondary"></i>
-      </div>
-    </div>
-  </div>
+<div class="card shadow-sm mt-2 mb-2"
+     [ngClass]="{
+      'wait-border': item.step === 'en cours',
+      'proposal-border': item.step === 'proposal',
+      'win-border': item.step === 'gagner',
+      'loose-border': item.step === 'perdu'
+     }">
 
   <div class="card-body">
-    <h5 class="card-title">{{item.titre}}</h5>
-    <p class="card-text"> montant: {{ item.montant }} </p>
-  </div>
+    <div class="row">
+      <div class="col-lg-9">
+        <p class="card-title"><b>#{{item.id}}</b> {{item.titre}}</p>
+        <p class="card-text"> montant: {{ item.montant | currency:'EUR'}} </p>
+      </div>
+      <div class="col-lg-3">
+        <div class="tool border text-center p-2">
+          <i class="fas fa-caret-down"></i>
+            <div class="tool-container">
+              <ul class="list-group">
+                <li class="list-group-item">Visualiser</li>
+                <li class="list-group-item">Editer</li>
+                <li class="list-group-item">Supprimer</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
 
-  <ng-content></ng-content>
+
+  </div>
 
 </div>

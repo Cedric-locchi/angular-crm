@@ -71,41 +71,32 @@
   </div>
 
   <div class="board_content">
-    <div class="row flex-nowrap">
+    <div class="row flex-nowrap mb-4">
 
       <div class="col-sm-3 pr-4">
-        <h5>en cour</h5>
-        <div class="col-kanban p-2">
-          <app-card *ngFor="let item of opportunity" [item]="item">
-            <div class="card-footer">
-              <button (click)="next(item)" class="btn btn-success btn-sm">étape suivante</button>
-            </div>
-          </app-card>
+        <p>en cours ({{opportunity.length}})</p>
+        <div class="col-kanban border bg-white p-3">
+          <app-card *ngFor="let item of opportunity;" [item]="item"></app-card>
         </div>
       </div>
 
       <div class="col-sm-3 pr-4">
-        <h5>proposer</h5>
-        <div class="col-kanban p-2">
-          <app-card *ngFor="let item of proposal" [item]="item">
-            <div class="card-footer">
-              <button (click)="win(item)" class="btn btn-success btn-sm">gagner</button> &nbsp;
-              <button (click)="loose(item)" class="btn btn-danger btn-sm">perdu</button>
-            </div>
-          </app-card>
+        <p>proposer ({{proposal.length}})</p>
+        <div class="col-kanban border bg-white p-3">
+          <app-card *ngFor="let item of proposal" [item]="item"></app-card>
         </div>
       </div>
 
       <div class="col-sm-3 pr-4">
-        <h5>gagner</h5>
-        <div class="col-kanban p-2">
+        <p>gagner ({{gagner.length}})</p>
+        <div class="col-kanban border bg-white p-3">
           <app-card *ngFor="let item of gagner" [item]="item"></app-card>
         </div>
       </div>
 
       <div class="col-sm-3 pr-4">
-        <h5>perdu</h5>
-        <div class="col-kanban p-2">
+        <p>perdu ({{perdu.length}})</p>
+        <div class="col-kanban border bg-white p-3">
           <app-card *ngFor="let item of perdu" [item]="item"></app-card>
         </div>
       </div>

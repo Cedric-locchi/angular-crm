@@ -9,20 +9,11 @@
 
 }
 
-.board_opportunity {
-  position: relative;
-}
-
 .col-kanban {
-  background-color: #cecece;
-  min-height: 600px;
-  max-height: 600px;
-  overflow: scroll;
+  min-height: 560px;
+  max-height: 560px;
+  overflow-y: scroll;
   width: 100%;
-}
-
-.card-text {
-  word-wrap: break-word !important;
 }
 
 .hide {
@@ -40,4 +31,8 @@
   visibility: visible;
   margin-top: 30px;
   transition: all ease 0.3s;
+}
+
+.card-body {
+  position: relative;
 }

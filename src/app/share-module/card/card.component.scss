@@ -1,6 +1,6 @@
 .card {
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1) !important;
-  border-radius: 0 !important;
+
   &:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
   }
@@ -21,4 +21,41 @@
     transform: translateY(40%);
   }
 
+}
+
+.tool {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  &:hover .tool-container {
+    display: block;
+  }
+
+}
+
+.tool-container {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.wait-border {
+  border-left: 7px solid #f39c12;
+}
+
+.proposal-border {
+  border-left: 7px solid #59abe3;
+}
+
+.win-border {
+  border-left: 7px solid #36d7b7;
+}
+
+.loose-border {
+  border-left: 7px solid #d24d57;
 }
