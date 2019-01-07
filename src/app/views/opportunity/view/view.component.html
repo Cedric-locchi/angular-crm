@@ -2,7 +2,7 @@
   <h1 class="h2">Opportunité</h1>
   <div class="btn-toolbar mb-2 mb-md-0">
     <div class="btn-group mr-2">
-      <a [routerLink]="['/admin/opportunity']"class="btn btn-sm btn-secondary mr-2 shadow-sm">
+      <a [routerLink]="['/admin/opportunity']" class="btn btn-sm btn-secondary mr-2 shadow-sm">
         <i class="fas fa-chevron-left"></i>
         retour
       </a>
@@ -17,19 +17,19 @@
       <ul class="nav nav-wizard">
 
         <li [ngClass]="{'active': information.phase === 1}">
-          <a>Etude du besoin</a>
+          <a>En cours</a>
         </li>
 
         <li [ngClass]="{'active': information.phase === 2}">
-          <a>Envoie du devis</a>
+          <a>Proposer</a>
         </li>
 
         <li [ngClass]="{'active': information.phase === 3}">
-          <a>Relance</a>
+          <a>Gagner</a>
         </li>
 
         <li [ngClass]="{'active': information.phase === 4}">
-          <a>Fermeture</a>
+          <a>Perdu</a>
         </li>
 
       </ul>
@@ -66,6 +66,55 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="col-lg-8">
+    <form #f="ngForm" (submit)="validateQuote(f)" class="card shadow-sm" novalidate>
+      <div class="card-header bg-info text-white">
+        <div class="row">
+          <div class="col-10">
+            Produit(s) de l'opprotunité
+          </div>
+          <div class="col-2 text-right">
+            <i (click)="addItem()" class="fas fa-plus-circle"></i>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-hover text-center">
+          <thead>
+          <tr>
+            <th scope="col">Produit</th>
+            <th width="150px;" scope="col">Prix unitaire</th>
+            <th width="150px;" scope="col">Quantité</th>
+            <th width="110px;" scope="col">Total</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of lignes">
+            <td>
+              <select  [(ngModel)]="item.name" *ngIf="products" class="form-control" name="select" id="select">
+                <option *ngFor="let item of products" [value]="item.id">{{item.name}}</option>
+              </select>
+            </td>
+            <td>
+              <input [(ngModel)]="item.pu" name="item.pu" class="form-control" type="number" [value]="item.pu">
+            </td>
+            <td>
+              <input [(ngModel)]="item.qt"  name="item.qt" class="form-control" type="number" [value]="item.qt">
+            </td>
+            <td>
+              <input class="form-control" type="number" disabled="disabled" [value]="item.pu * item.qt">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-info btn-sm">Valider les lignes</button>
+      </div>
+    </form>
   </div>
 
 </div>

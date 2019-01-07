@@ -83,21 +83,21 @@
       <div class="col-sm-3 pr-4">
         <p>proposer ({{proposal.length}})</p>
         <div class="col-kanban border bg-white p-3">
-          <app-card *ngFor="let item of proposal" [item]="item"></app-card>
+          <app-card (opportunity)="redirect($event)" (delete)="remove($event)" *ngFor="let item of proposal" [item]="item"></app-card>
         </div>
       </div>
 
       <div class="col-sm-3 pr-4">
         <p>gagner ({{gagner.length}})</p>
         <div class="col-kanban border bg-white p-3">
-          <app-card *ngFor="let item of gagner" [item]="item"></app-card>
+          <app-card (opportunity)="redirect($event)" (delete)="remove($event)" *ngFor="let item of gagner" [item]="item"></app-card>
         </div>
       </div>
 
       <div class="col-sm-3 pr-4">
         <p>perdu ({{perdu.length}})</p>
         <div class="col-kanban border bg-white p-3">
-          <app-card *ngFor="let item of perdu" [item]="item"></app-card>
+          <app-card (opportunity)="redirect($event)" (delete)="remove($event)" *ngFor="let item of perdu" [item]="item"></app-card>
         </div>
       </div>
 

@@ -24,7 +24,9 @@
 }
 
 .tool {
-  position: relative;
+  position: absolute;
+  top: -25px;
+  right: -5px;
   display: inline-block;
   cursor: pointer;
 
@@ -32,6 +34,10 @@
     display: block;
   }
 
+}
+
+.col-lg-3 {
+  position: relative;
 }
 
 .tool-container {

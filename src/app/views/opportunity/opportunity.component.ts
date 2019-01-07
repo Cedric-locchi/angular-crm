@@ -69,7 +69,7 @@ export class OpportunityComponent implements OnInit {
   }
 
   remove(ev) {
-    console.log(ev);
+    this.opportunityService._deleteOpportunity(ev);
   }
 
   save() {

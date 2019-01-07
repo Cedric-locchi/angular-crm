@@ -36,116 +36,13 @@
   ],
   "opportunity": [
     {
-      "id": 1,
-      "contactId": 1,
-      "titre": "un titre",
-      "description": "une super description d'opportunité",
-      "montant": 100,
-      "step": "gagner",
-      "dateFin": null,
-      "phase": 1
-    },
-    {
-      "id": 2,
-      "contactId": 4,
-      "titre": "un titre",
-      "description": "une super description d'opportunité",
-      "montant": 100,
-      "step": "gagner",
-      "dateFin": null,
-      "phase": 1
-    },
-    {
-      "id": 3,
-      "contactId": 2,
-      "titre": "un titre",
-      "description": "une super description d'opportunité",
-      "montant": 100,
-      "step": "gagner",
-      "dateFin": null,
-      "phase": 1
-    },
-    {
-      "id": 4,
-      "contactId": 2,
-      "titre": "un titre",
-      "description": "une super description d'opportunité",
-      "montant": 100,
-      "step": "perdu",
-      "dateFin": null,
-      "phase": 2
-    },
-    {
-      "contactId": 2,
-      "titre": "aze",
-      "description": "aze",
-      "montant": 100,
-      "step": "perdu",
-      "id": 5,
-      "phase": 3
-    },
-    {
-      "contactId": "2",
-      "titre": "aze",
-      "description": "aze",
-      "montant": 10,
-      "step": "perdu",
-      "id": 6,
-      "phase": 1
-    },
-    {
-      "contactId": "7",
-      "titre": "une super opportunité",
-      "description": "opportunité basé sur un test super genial trop cool",
-      "montant": 2000,
-      "step": "perdu",
-      "id": 7,
-      "phase": 1
-    },
-    {
-      "contactId": "9",
-      "titre": "super test 2",
-      "description": "une bonne description ",
-      "montant": 3000,
-      "step": "perdu",
-      "id": 8,
-      "phase": 4
-    },
-    {
-      "contactId": "6",
-      "titre": "azeazeaze",
-      "description": "aze",
-      "montant": 100,
-      "step": "perdu",
-      "id": 9,
-      "phase": 1
-    },
-    {
-      "contactId": "1",
-      "titre": "opportunité 2",
-      "description": "une description super cool de fou!!",
-      "montant": 3200,
-      "step": "en cours",
-      "id": 10,
-      "phase": 1
-    },
-    {
-      "contactId": "2",
-      "titre": "azeaze",
-      "description": "azeaze",
-      "montant": 1000,
-      "step": "en cours",
-      "id": 11,
-      "phase": 3
-    },
-    {
       "contactId": "3",
-      "titre": "oportunité 3",
+      "titre": "une opportunité sympa",
       "description": "une description super cool de fou!!",
-      "montant": 3000,
+      "montant": 120,
       "step": "en cours",
-      "id": 12,
-      "phase": 3
+      "id": 1,
+      "phase": 1
     }
   ],
   "invoice": [
@@ -187,6 +84,19 @@
       "name": "produit 3",
       "prix": "1000",
       "id": 3
+    },
+    {
+      "name": "produit 3",
+      "prix": "200",
+      "id": 4
+    }
+  ],
+  "profils": [
+    {
+      "id": 1,
+      "username": "cedric@gmail.com",
+      "password": "2701Lqr.",
+      "preferences": []
     }
   ]
 }

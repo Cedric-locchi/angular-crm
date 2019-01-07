@@ -198,4 +198,11 @@ export class OpportunityService {
       });
   }
 
+  _deleteOpportunity(id) {
+    this.http.delete(environment.url + 'opportunity/' + id)
+      .subscribe(() => {
+        this._getOpportunity();
+      });
+  }
+
 }

@@ -10,7 +10,6 @@ const routes: Routes = [
   {
     path: 'admin', component: DefaultLayoutComponent, children: [
       {path: '', loadChildren: './views/dashboard/dashboard.module#DashboardModule'},
-      {path: 'invoice', loadChildren: './views/invoice/invoice.module#InvoiceModule'},
       {path: 'quote', loadChildren: './views/quote/quote.module#QuoteModule'},
       {path: 'product', loadChildren: './views/products/products.module#ProductsModule'},
       {path: 'contact', loadChildren: './views/contact/contact.module#ContactModule'},

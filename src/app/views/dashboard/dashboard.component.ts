@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {InvoiceService} from '../../services/invoice/invoice.service';
 import {OpportunityService} from '../../services/opportunity/opportunity.service';
 
 @Component({
@@ -9,14 +8,9 @@ import {OpportunityService} from '../../services/opportunity/opportunity.service
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private invoiceService: InvoiceService,
-              private opportunityService: OpportunityService) { }
+  constructor(private opportunityService: OpportunityService) { }
 
   ngOnInit() {
-  }
-
-  get invoices() {
-    return this.invoiceService.total;
   }
 
   get opportunity() {

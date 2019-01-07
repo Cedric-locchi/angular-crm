@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ContactService} from '../../../services/contact/contact.service';
 import {ActivatedRoute} from '@angular/router';
-import {InvoiceService} from '../../../services/invoice/invoice.service';
 import {OpportunityService} from '../../../services/opportunity/opportunity.service';
 import {QuoteService} from '../../../services/quote/quote.service';
 
@@ -18,7 +17,6 @@ export class ViewComponent implements OnInit {
   countOpp: boolean;
 
   constructor(private route: ActivatedRoute,
-              private invoiceService: InvoiceService,
               private opportunityService: OpportunityService,
               private quoteService: QuoteService,
               private contactService: ContactService) {
@@ -27,7 +25,6 @@ export class ViewComponent implements OnInit {
     this.id = id;
 
     this.contactService._getOneContact(id);
-    this.invoiceService._getInvoiceFromContact(id);
     this.quoteService._getQuoteByContact(id);
     this.opportunityService._getOpportunityByContact(id);
 
@@ -35,10 +32,6 @@ export class ViewComponent implements OnInit {
 
   get information() {
     return this.contactService.information;
-  }
-
-  get invoices() {
-    return this.invoiceService.contactInvoice;
   }
 
   get opportunity() {

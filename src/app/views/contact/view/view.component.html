@@ -11,7 +11,6 @@
 
       <button class="btn btn-sm btn-primary mr-2 shadow-sm">créer une opportunité</button>
       <button class="btn btn-sm btn-success mr-2 shadow-sm">créer un devis</button>
-      <button class="btn btn-sm btn-dark shadow-sm">créer un facture</button>
 
     </div>
   </div>
@@ -62,11 +61,6 @@
     <ul class="list-group mt-3 shadow-sm" *ngIf="quote">
       <li class="list-group-item d-flex justify-content-between align-items-center">total des devis:
         <b>{{quote.count | currency:'EUR'}}</b></li>
-    </ul>
-
-    <ul class="list-group mt-3 shadow-sm" *ngIf="invoices">
-      <li class="list-group-item d-flex justify-content-between align-items-center">total des factures:
-        <b>{{invoices.count | currency:'EUR'}}</b></li>
     </ul>
 
   </div>
@@ -120,32 +114,6 @@
             <td>{{item.total | currency:'EUR'}}</td>
             <td>
               <button class="btn btn-outline-success btn-sm">transformer</button>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="card mt-3 mb-3 shadow-sm" *ngIf="invoices && invoices.invoices.length > 0">
-      <div class="card-header bg-info text-white">Liste des factures</div>
-      <div class="card-body">
-        <table class="table table-bordered table-hover text-center">
-          <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">nom</th>
-            <th scope="col">montant</th>
-            <th scope="col">action</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let item of invoices.invoices">
-            <th scope="row">{{item.id}}</th>
-            <td>{{item.name}}</td>
-            <td>{{item.total | currency:'EUR'}}</td>
-            <td>
-              <button class="btn btn-outline-warning btn-sm">archiver</button>
             </td>
           </tr>
           </tbody>
